@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { PORT, MONGO_URI } = require("./config");
-const movieRoutes = require("./routes/movieRoutes");
+const movieRoutes = require("./src/routes/movieRoutes");
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-app.use(movieRoutes);
+app.use("/api",movieRoutes);
 
 mongoose
   .connect(MONGO_URI)
